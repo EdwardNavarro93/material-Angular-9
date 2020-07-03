@@ -1,0 +1,28 @@
+<h2>Comunicacion entre Componentes</h2>
+
+<h3>Comunicacion Padre a Hijo</h3>
+<p>para la comunicacion entre padre e hijo se utiliza un binding de atributo y el decorador input</p>
+
+<h3>Comunicacion Hijo a Padre</h3>
+<p>para esta comunicacion se utiliza eventos tales como el evento: EventEmitter y el decorador Output</p>
+
+<h3>Comunicacion entre hermanos</h3>
+<p>la comunicacion entre hermanos se realiza primero una comunicacion con el padre y luego con el hermano</p>
+
+<h3>comunicacion entre componentes sin relacion directa</h3>
+<p>una de las tecnicas de comunicacion entre estos componentes es utilizando servicios</p>
+
+<div>  
+    <h3>Ejemplo 1 - Comunicacion padre a hijo</h3>
+    <app-componente-padre></app-componente-padre>
+</div>
+
+<div>
+    <h3>Ejemplo 2-  Comunicacion hijo a padre</h3>
+    <app-componente-padre2></app-componente-padre2>
+</div>
+
+<div>
+    <h3 style="text-align: center;">Ejemplo 3- Comunicacion entre componentes lejanos</h3>
+    <app-componente-padre3></app-componente-padre3>
+</div>

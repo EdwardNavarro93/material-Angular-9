@@ -1,0 +1,11 @@
+<h3>Componente Padre</h3>
+
+Escribe algo: 
+<input type="text" [(ngModel)]="texto">
+<span style="color:red;">{{mensajedeError}}</span>
+
+<br>
+
+<button (click)="enviarMensaje()">Enviar</button>
+
+<app-hijo-viewchild #hijo></app-hijo-viewchild> <!--la referencia permite trabajar con el componente hijo desde el componente padre (esto solo a modo de ejemplo)-->

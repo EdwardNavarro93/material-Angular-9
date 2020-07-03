@@ -1,0 +1,45 @@
+<h2>Directivas de Atributo</h2>
+
+<ul>
+    <li>Las directivas de atributo modifican el comportamiento o la apariencia de los elementos HTML, tanto sus atributos como sus propiedades</li>
+    <li>entre estas directivas se encuentran: ngClass, ngStyle, ngModel</li>
+</ul>
+
+<div>
+    <h3>ngClass</h3>
+    <p>ngclass agrega o quita una o mas clases segun se cumpla una condicion</p>
+    
+    
+    <h3>Ejemplo - asignar dinamicamente una o mas clases</h3>
+    <input type="checkbox" (change)="colorcheck = !colorcheck">
+    Cambiar color
+    <input type="checkbox" (change)="tamanocheck = !tamanocheck">
+    Cambiar tamaño 
+    <div class="cuadrado" [ngClass]="{color: colorcheck, tamano:tamanocheck}"></div> <!-- (en este caso si la variable "estacheckeado" es verdaddera o no)-->
+    <!--<div class="cuadrado" [ngClass]="{'color tamano': colorcheck}"></div>-->
+</div>
+
+<div>
+    <h3>ngStyle</h3>
+    <p>sirve para editar estilos de manera dinamica de los elementos HTML, con ngStyle se logra que el valor de un estilo sea dinamico</p>
+    <h3>Ejemplo - editar estilos dinamicamente</h3>
+    <input type="number" value="100" (input)="cambiarValor($event)">
+    Cambiar ancho
+    <br>
+    <input type="checkbox" (change)="cambiarcolor = !cambiarcolor">
+    Cambiar color
+    <div class="cuadrado" [ngStyle]="{'background-color': cambiarcolor? 'blue': 'red' ,'width': valor +'px', 'height': valor +'px'}"></div> <!--cambia los estilos dinamicamente dependiendo del estado o del valor de una variable-->
+</div>
+
+
+<div>
+    <h3>ngModel</h3>
+    <p>provee una manera sencilla de crear una sincronizacion de binding de dos vias, para utilizar en ngModel es necesario importar el modulo FormsModule en el appModule</p>
+    <h3>ejemplo - ngModel para hacer binding de dos vias</h3>
+    Escribe algo: <input type="text" [(ngModel)]="texto"> <!--ngmodel permite la sincronizacion entre la plantilla y la logica -->
+    <br>
+    El valor de la variable es: {{texto}}
+    <br>
+    <button (click)="texto=texto.toUpperCase()">MAYUSCULAS</button>
+    <button (click)="texto=texto.toLowerCase()">minusculas</button>
+</div>

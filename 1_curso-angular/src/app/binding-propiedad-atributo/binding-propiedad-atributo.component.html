@@ -1,0 +1,18 @@
+<h2>Binding de propiedades</h2>
+
+<ul>
+    <li>Un binding de propiedad sirve para asignar dinamicamente un valor a una propiedad de un elemento de una vista</li>
+    <li>su sintaxis es:</li>
+    &lt;img [src]="imagenURL"&gt;
+</ul>
+
+<div>
+    <h3>Ejemplo 1 - editar la propiedad de una imagen dinamicamente</h3>
+    seleccion de una imagen:
+    <select id="selectImagen" (change)="imagenURL = $event.target.value">
+        <option value="https://pbs.twimg.com/profile_images/378800000539531860/2c45151a4a11d3a3c8e71bb34dd069d6_400x400.png">ASP.NET</option>
+        <option value="https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/000/962/square_256/angularcli.png">Angular</option>
+    </select>
+    <br>
+    <img [src]="imagenURL" > <!--cambia dinamicamente el atributo src de la imagen-->
+</div>

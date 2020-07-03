@@ -1,0 +1,21 @@
+Encontrar el usuario por ID:
+<input type="text" #textId>
+<button (click)="getUser(textId.value)">Obtener Usuario</button>
+<br>
+
+<div *ngIf="notfound">El usuario no fue encontrado</div>
+
+<div *ngIf="user">
+    <ul>
+        <li>ID: {{user.id}}</li>
+        <li>Nombre: {{user.name}}</li>
+        <li>Nombre de Usuario: {{user.username}}</li>
+        <li>email: {{user.email}}</li>
+    </ul>
+</div>
+
+<div *ngIf="users">
+    <ul>
+        <li *ngFor = "let user of users">{{user.id}} - {{user.name}}</li>
+    </ul>
+</div>

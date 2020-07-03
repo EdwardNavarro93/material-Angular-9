@@ -1,0 +1,101 @@
+<h2>Directivas Estructurales</h2>
+<p>permiten alterar las etiquetas HTML de la pagina web</p>
+
+<div>
+    <h3>Ngif</h3>
+    <p>sirve para agregar o remover elementos del DOM segun una condicion dada</p>
+    <h3>Ejemplo 1 - utilizando ngIf</h3>
+    <input type="checkbox" (change)= "checkeado =!checkeado"> Mostrar contenido
+    <div *ngIf="checkeado">El contenido esta seleccionado</div> <!--si el valor de la variable es verdadero se renderiza el elemento sino no-->
+    <h3>Ejemplo 2 - esperando la carga de un recurso</h3>
+    <div *ngIf="infocargada">La informacion ha cargado despues de un tiempo</div>
+    <h3>Ejemplo 3- otra manera de agregar un componente</h3>
+    <input type="checkbox" (change)= "componente = !componente"> Agregar componente
+    <div *ngIf="componente; then showcomponente; else hidecomponente"></div> <!--si se cumple una condicion pondra un elemento y sino pondra el otro-->
+    <ng-template #showcomponente>
+        <p>hola soy el componente a mostrar</p>
+    </ng-template>
+    <ng-template #hidecomponente>
+        <p>hola soy un componente oculto</p>
+    </ng-template>
+</div>
+
+<div>
+    <h3>NgFor</h3>
+    <p>sirve para iterar elementos y mostrarlos en pantalla</p>
+    <h3>Ejemplo 1 - Utilizando NgFor</h3>
+    <ul>
+        <li *ngFor="let nombre of nombres">{{nombre}}</li>  <!--crea un eemento li por cada nombre en la lista nombres-->
+    </ul>
+
+    <h3>Ejemplo 2 - ngFor e indices</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Indice</th>
+                <th>nombre</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let persona of personas; let indice = index">
+                <td>{{indice + 1}}</td>
+                <td>{{persona.nombre}}</td>
+                <td>{{persona.edad}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Ejemplo 3 - otras variables de contexto con ngFor</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Indice</th>
+                <th>Titulo libro</th>
+                <th>año </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let libro of libros; let indice = index; let primero = first; let ultimo=last; 
+            let par = even; let impar = odd" [ngClass] ="{'primero':primero,'par':par, 'impar':impar, 'ultimo':ultimo}"> 
+            <!--cuando sea par agregara la clase par y sino la clase impar-->
+                <td>{{indice + 1}}</td>
+                <td>{{libro.titulo}}</td>
+                <td>{{libro.anio}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h3>ngSwitch</h3>
+    <p> permite mostrar un elemento de un conjunto de elementos del DOM, segun una condicion dada</p>
+    <h3>Ejemplo 1 - ngSwitch</h3>
+    Seleccione una opcion
+    <select (change)="option = $event.target.value">
+        <option> seleccione una opcion</option>
+        <option value="ASP.NET">ASP.NET</option>
+        <option value="Angular">Angular</option>
+    </select>
+
+    <!--dependiendo del caso se mostrara uno de los elementos de abajo-->
+    <div [ngSwitch]="option"> 
+        <div *ngSwitchDefault>Debes escoger una opcion</div> <!--valor por defecto-->
+        <div *ngSwitchCase="'ASP.NET'">Has escogido la opcion ASP.NET un framework de desarrollo de aplicaciones web</div>
+        <div *ngSwitchCase="'Angular'">Has escogido Angular, una plataforma de desarrollo de aplicaciones moderns</div>
+    </div>
+</div>
+
+<div>
+    <h3>ng-container</h3>
+    <p>Es un contenedor que sirve para envolver elementos. ng-container no es renderizado en el HTML final de la aplicacion</p>
+    <h3>Ejemplo</h3>
+    <button (click)= "ver_contenido =!ver_contenido">ver contenido</button>
+    <ul>
+        <li>
+            <ng-container *ngIf="ver_contenido">El contenido esta seleccionado</ng-container> <!--agrega contenido puro a la etiqueta-->
+        </li>
+    </ul>
+    
+</div>

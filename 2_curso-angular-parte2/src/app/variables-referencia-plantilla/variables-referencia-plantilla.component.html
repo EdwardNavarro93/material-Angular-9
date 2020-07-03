@@ -1,0 +1,28 @@
+<h2>Variables de Referencia de Plantilla</h2>
+
+<p>permite referenciar un elemento de la plantilla. Este elemento es tipicamente un elemento del DOM o un componente</p>
+
+<h3>Ejemplo - declarando una variable de plantilla</h3>
+
+<input type="file" style="display: none;" #uploader> <!--permite utilizar este elemento en otra parte-->
+<button (click)="uploader.click()">Cargar Archivo</button> <!--al hacer click el input tambn se ejecuta-->
+
+<div>
+    <h3>ViewChild</h3>
+    <p>con ViewChild se puede hacer referencia a los elementos de la plantilla desde la clase del componente. hay dos formass de hacerlo: </p>
+
+    <ol>
+        <li>utilizando una variable de referencia de plantilla</li>
+        <li>utilizando el tipo de componente</li>
+    </ol>
+
+    <h3>Ejemplo - utilizando variable de plantilla</h3>
+    <app-padre-viewchild></app-padre-viewchild>
+</div>
+
+<div>
+    <h3>ViewChidren</h3>
+    <p>con ViewChildren se puede agarrar un conjunto de instancias de un componente de una plantilla. Esta referencia es dinamica.</p>
+    <p>viewChildren tambien permite recorrer los componentes y ademas seleccionar un componente en particular del conjunto</p>
+    <app-padre-viewchildren></app-padre-viewchildren>
+</div>

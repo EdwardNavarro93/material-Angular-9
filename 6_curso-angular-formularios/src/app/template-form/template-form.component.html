@@ -1,0 +1,51 @@
+
+<form style="margin: 20px;" (submit)="submit()" #formulario="ngForm">
+
+    <!--el campo username-->
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="email" class="form-control" id="username" name="username" [(ngModel)]="model.username" required  #usuario="ngModel"> <!--se necesita una variable de referencia de plantilla para validar el campo (puede tener cualquier nombre)-->
+
+      <!--muestra una pestaña de error en caso de validacion-->
+      <div class="alert alert-danger" *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)"> <!--aqui se colocan las reglas de validacion-->
+        <div *ngIf="usuario.errors.required"> <!--si el error "required se encuentra en la listta de errores"-->
+          El campo Username es Obligatorio!
+        </div>
+      </div>
+
+    </div>
+
+    <!--el campo password-->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="model.password" required minlength="5" #contrasenia="ngModel">
+
+      <div class="alert alert-danger" *ngIf="contrasenia.invalid && (contrasenia.dirty || contrasenia.touched)">
+        <div *ngIf="contrasenia.errors.required"> 
+          El campo Password es Obligatorio!
+        </div>
+        <div *ngIf="contrasenia.errors.minlength"> 
+          La contraseña debe tener minimo 5 caracteres!
+        </div>
+      </div>
+
+      
+
+
+    </div>
+
+    <div class="form-group">
+        <label for="subscripcion">Example select</label>
+        <select class="form-control" id="subscripcion" name="subscripcion" [(ngModel)]="model.subscripcion">
+          <option *ngFor="let suscripcion of subscripciones" [value]="suscripcion.value">{{suscripcion.text}}</option>
+        </select>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="promociones" name="promociones" [(ngModel)]="model.promociones">
+        <label class="form-check-label" for="promociones">Deseo recibir Promociones</label>
+    </div>
+     
+    <button type="submit" class="btn btn-primary" [disabled]="!formulario.form.valid">Submit</button>
+    <button type="button" class="btn btn-default" (click)="refresh()">Refrescar</button>
+  </form>

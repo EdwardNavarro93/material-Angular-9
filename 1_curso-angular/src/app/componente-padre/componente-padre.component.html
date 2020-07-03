@@ -1,0 +1,5 @@
+<h3>Componente Padre</h3>
+
+<input type="text" (input)="textopadre=$event.target.value">
+
+<app-componente-hijo [textoHijo]="textopadre"></app-componente-hijo> <!--se crea la comunicacion entre los componentes-->

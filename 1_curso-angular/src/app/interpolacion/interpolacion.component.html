@@ -1,0 +1,28 @@
+<h2>{{titulo}}</h2> <!--Interpolacion que obtiene la propiedad titulo del componente-->
+
+<ul>
+    <li>La interpolacion se utiliza para colocar texto dinaminco en la plantilla HTML</li>
+    <li>su sintaxis es: {{}expresión}</li>
+</ul>
+
+
+
+
+<p>Ejemplo 1 - Mostrar el valor de una variable</p>
+
+<p>Hola me llamo {{persona.nombre}} {{persona.apellido}} y estoy usando interpolacion en Angular</p>
+<p>Ejemplo 2 - Evaluar expresiones</p>
+<p>La suma de 2 y 2 es {{2 + 2}}</p>
+
+<p>ejemplo 3 - Evaluar una funcion</p>
+<p>hola mundo repetido es: {{duplicarTexto('hola mundo')}}</p>
+
+<p>ejemplo 4 - operador de navegacion segura (?.)</p>
+<!--<p>la propiedad persona 2 no existe {{persona2?.edad}}</p> si la propiedad existe implementela y sino ignorela-->
+
+<p>ejemplo 5 - se pueden realizar exprsiones complejas</p>
+<p>{{'hola voy a concatenar este string con una funcion ' + duplicarTexto('hola mundo')}}</p>
+
+<p>ejemplo 6 - se puede usar variables de referencia de plantilla</p>
+<p #miparrafo>parrafo que deseo introducir</p>  <!--variable de referencia de plantilla permite hacer referencia de este elemento HTML dentro de la misma plantilla o en el TS-->
+<input value="{{miparrafo.innerHTML}}">

@@ -1,0 +1,5 @@
+<h3>Componente Padre 2</h3> 
+
+<p>El mensaje desde el componente Hijo es: {{textopadre}}</p>
+
+<app-componente-hijo2 (enviar)="recibirMensaje($event)" (enviarMayusculas)="recibirMensaje($event)"></app-componente-hijo2> <!--cuando se hace click en el boton (que esta adentro del componete hijo) se ejecutan los eventos implementados dentro del componente hijo -->

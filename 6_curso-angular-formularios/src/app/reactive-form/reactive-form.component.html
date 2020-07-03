@@ -1,0 +1,50 @@
+
+<form style="margin: 20px;" #formulario="ngForm" (submit)="submit()" [formGroup]="registerForm"> <!--formgroup conecta la plantilla del formulario con la clase JS-->
+
+    <!--el campo username-->
+    <div class="form-group">
+      <label for="name">Username</label>
+      <input type="email" class="form-control" id="name" name="name" formControlName="username">  <!--formcontrolname conecta el campo del formulario "username" con la clase JS-->
+    
+      <!--muestra una pestaña de error en caso de validacion-->
+      <div class="alert alert-danger" *ngIf="usrName.invalid && (usrName.dirty || usrName.touched)"> <!--aqui se colocan las reglas de validacion-->
+        <div *ngIf="usrName.errors.required"> <!--si el error "required se encuentra en la listta de errores"-->
+          El campo Username es Obligatorio!
+        </div>
+      </div>
+
+
+    </div>
+
+    <!--el campo password-->
+    <div class="form-group">
+      <label for="pass">Password 2</label>
+      <input type="password" class="form-control" id="pass" name="pass" formControlName="password">
+
+      <div class="alert alert-danger" *ngIf="contrasenia.invalid && (contrasenia.dirty || contrasenia.touched)">
+        <div *ngIf="contrasenia.errors.required"> 
+          El campo Password es Obligatorio!
+        </div>
+        <div *ngIf="contrasenia.errors.minlength"> 
+          La contraseña debe tener minimo 4 caracteres!
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="form-group">
+        <label for="subs">Example select</label>
+        <select class="form-control" id="subs" name="subs" formControlName="subscripcion">
+          <option *ngFor="let suscripcion of subscripciones" [value]="suscripcion.value">{{suscripcion.text}}</option>
+        </select>
+    </div>
+
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="promo" name="promo" formControlName="promociones">
+        <label class="form-check-label" for="promo">Deseo recibir Promociones</label>
+    </div>
+     
+    <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Submit</button>
+    <button type="button" class="btn btn-default" (click)="refresh()">Refrescar</button>
+  </form>

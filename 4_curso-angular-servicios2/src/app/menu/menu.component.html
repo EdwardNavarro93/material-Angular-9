@@ -1,0 +1,9 @@
+
+<nav>
+    <ul >
+        <li><a  routerLink="" >Mi App</a></li>
+        <li><a  routerLink="/usuarios">Usuarios</a></li> 
+        <li><a  routerLink="/posts" >Posts</a></li>
+        <li><a  [routerLink]="[{outlets: {popup: ['panico']}}]">Panico</a></li> <!--permite tener una ruta secundaria hacia un boton de panico-->
+    </ul>
+</nav>

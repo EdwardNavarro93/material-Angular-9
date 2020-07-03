@@ -1,0 +1,22 @@
+<h2>Componente Padre</h2>
+
+<app-hijo-proyeccion>soy un texto proyectado</app-hijo-proyeccion> <!--envia el texto a la etiqueta ng-content-->
+
+<br>
+
+<app-hijo-proyeccion>
+    <button (click)="handleClick()">Mi boton</button> <!--envia una plantilla HTML a la etiqueta ng-content -->
+</app-hijo-proyeccion>
+
+<br>
+
+<app-hijo-proyeccion>
+    <app-proyectado></app-proyectado> <!--envia un componente completo a la etiqueta ng-content-->
+</app-hijo-proyeccion>
+
+<app-hijo2-proyeccion>
+    <ng-container header>Soy un texto de cabecera</ng-container> <!--indica donde se va a colocar el contenido-->
+    <ng-container body>Soy un texto de cuerpo de pagina</ng-container>
+    <ng-container footer>Soy un texto de pie de pagina</ng-container>
+</app-hijo2-proyeccion>
+

@@ -1,0 +1,40 @@
+
+<p>curso en: https://www.youtube.com/user/gavilanchpro/playlists</p>
+
+<h1>Servicios en Angular</h1>
+
+<p>En Angular un servicio es una clase con un proposito bien definido. Los componentes pueden utilizar servicios y asi mismo los serrvicios pueden utilizar otros servicios</p>
+
+<ul>
+  <li>ventajas: Permite tener codigo organizado y reutilizable</li>
+  <li>crear un servicio con CLI: ng generate service [nombrecarpeta]/[nombredelservicio]</li>
+  <li>ejemplo: ng generate service services/primer_servicio</li>
+</ul>
+
+<h2>Inyeccion de Dependencias</h2>
+<p>Cuando una clase A depende de una clase B se dice que la clase B es dependencia de la clase A. La inyeccion de dependencias es un mecanismo por el cual se inyecta las dependencias de una clase</p>
+
+<h3>Ejemplo</h3>
+<app-introto-services></app-introto-services>
+
+<h2>servicio HttpClient</h2>
+<p>Es el standar en Angular para realizar peticiones http. Para hacer uso de este modulo debe ser importado en el app.module</p>
+
+<h3>Metodos HTTP</h3>
+<ul>
+  <li>HTTP GET: Sirve para leer informacion del servidor</li>
+  <li>HTTP POST: Sirve para enviar informacion al servidor</li>
+  <li>HTTP PUT: sirve para realizar actualizaciones completas de un recurso</li>
+  <li>HTTP PATCH: sirve para realizar actualizaciones parciales de un recurso (ayuda a optimizar la aplicacion)</li>
+  <li>HTTP DELETE: sirve para borrar recursos</li>
+</ul>
+
+<div>
+  <h3>Ejemplo metodo GET</h3>
+  <app-peticion-get></app-peticion-get>
+</div>
+
+<div>
+  <h3>Ejemplo metodo POST</h3>
+  <app-metodo-post></app-metodo-post>
+</div>

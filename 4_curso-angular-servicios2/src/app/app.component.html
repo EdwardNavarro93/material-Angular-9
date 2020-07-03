@@ -1,0 +1,33 @@
+<h1>Routing en Angular Parte 2</h1>
+
+<p>clases en: https://www.youtube.com/user/gavilanchpro/playlists </p>
+
+<h2>Multiples Modulos</h2>
+
+<p>A medida que la aplicacion crezca es mas ventajoso dividir la aplicacion en varios modulos, los modulos pueden ser categorizados segun su funcion o responsabilidad, se distinguen tres categorias de modulos:</p>
+
+<ol>
+  <li>Modulo Raiz: Es el modulo principal de la aplicacion. Por convencion su nombre es AppModule</li>
+  <li>Modulos de Rutas: Son modulos dedicados donde se definen reglas de ruteo. En este caso se cuenta con el modulo de ruteo AppRoutingModule</li>
+  <li>Modulos de Caracteristicas: Son aquellos que encapsulan elementos de la aplicacion que giran en torno a una unidad de negocio</li>
+</ol>
+
+<p>Los modulos permiten agrupar funcionalidades relacionadas, esto permite entre otras funcionalidades cargar perezosamente algunas partes de la aplicacion</p>
+
+<h2>Rutas Hijas</h2>
+
+<p>las rutas hijas permiten definir componentes especificos que seran mostrados dentro de la plantilla de un componente padre</p>
+
+<app-menu></app-menu>
+<router-outlet></router-outlet>
+
+
+<h2>Rutas Secundarias</h2>
+
+<p>las rutas secundarias permiten varios router-outlet de manera simultanea</p>
+<p>la diferencia con las rutas hijas es que las rutas secundarias se siguen mostrando en pantalla aun cuando el usuario navegue a otras pantallas de la aplicacion </p>
+
+
+<div class="boton">
+  <router-outlet name="popup"></router-outlet> <!--el name permite identificar el router outlet-->
+</div>

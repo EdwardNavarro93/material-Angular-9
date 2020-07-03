@@ -1,0 +1,30 @@
+<h2>Clase 2 - Binding de Eventos </h2>
+
+<ul>
+    <li>cuando se habla de eventos se refiere a acciones que provocan la ejecucion de una funcion</li>
+    <li>su sintaxis es: </li>
+     
+        &lt;button (click)="guardar()"&gt; Guardar &lt;/button&gt; 
+</ul>
+
+<div>
+    <h3>Ejemplo 1 - Eventos con un botoncito</h3>
+    <button (click)="incrementar()">Incrementar contador</button> <!--ejecuta una funcion cuando se haga click-->
+    <br>
+    Contador: {{cantidad}}
+</div>
+
+<div>
+    <h3>Ejemplo 2 - Binding de eventos sin una funcion</h3>
+    <button (click)="valor = valor + 1">Incrementar contador</button> <!--ejecuta una funcion cuando se haga click-->
+    <br>
+    Contador: {{valor}}
+</div>
+
+
+<div>
+    <h3>Ejemplo 3 - Otros eventos y el objeto evento</h3>
+    <input (input) = "onTextboxInput($event)"> <!--evento que se ejecuta cuando se agregue info al input y se le pasa el objeto evento para obtener mas detalles sobre el-->
+    <br>
+    Texto Escrito en el Input: {{textoescrito}}
+</div>
